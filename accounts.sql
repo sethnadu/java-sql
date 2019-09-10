@@ -15,7 +15,15 @@ DROP TABLE IF EXISTS accounts;
 
 CREATE TABLE accounts (
     id SERIAL PRIMARY KEY,
-    name text UNIQUE,
+    name VARCHAR UNIQUE,
     budget numeric NOT NULL
 );
 
+INSERT INTO accounts(name, budget) VALUES('Seth Nadu', 50000);
+INSERT INTO accounts(name, budget) VALUES('John Doe', 250000);
+
+-- INSERT INTO accounts(name, budget)
+-- VALUES('Seth Nadu', 670000)
+
+-- SELECT *
+-- FROM accounts

@@ -152,6 +152,7 @@ Take the following data and normalize it into a 3NF database.
 
 ---
 
+
 FENCED/CITY TABLE
 Outside ID     City Dweller    Fenced Yard
 1              Yes             No
@@ -165,6 +166,8 @@ Person Id   Person Name   Outside ID
 1           Jane          1             
 2           Bob           4             
 3           Sam           3             
+
+
 
 PET TYPE TABLE
 Pet Type ID  Pet Type  
@@ -242,7 +245,7 @@ WHERE customer_id IN (
 
 
 ***********Wrote as an accounts.sql file:**************
-
+```
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -274,12 +277,12 @@ INSERT INTO accounts VALUES(2, 'John Doe', 250000);
 -- SELECT *
 -- FROM accounts
 
-
+```
 ///////////////////////////////////////
 
 
 ***********COPIED FROM pgADMIN4:**************
-
+```
 CREATE TABLE public.accounts
 (
     id integer NOT NULL DEFAULT nextval('accounts_id_seq'::regclass),
@@ -296,3 +299,4 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.accounts
     OWNER to postgres;
+```
