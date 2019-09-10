@@ -239,3 +239,60 @@ WHERE customer_id IN (
   - the `id` should be the primary key for the table.
   - account `name` should be unique.
   - account `budget` is required.
+
+
+***********Wrote as an accounts.sql file:**************
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+DROP TABLE IF EXISTS accounts;
+
+CREATE TABLE accounts (
+    id SERIAL PRIMARY KEY,
+    name text UNIQUE,
+    budget numeric NOT NULL
+);
+
+
+INSERT INTO accounts VALUES(1, 'Seth Nadu', 50000);
+INSERT INTO accounts VALUES(2, 'John Doe', 250000);
+
+-- INSERT INTO accounts(name, budget)
+-- VALUES('Seth Nadu', 670000)
+
+-- SELECT *
+-- FROM accounts
+
+
+///////////////////////////////////////
+
+
+***********COPIED FROM pgADMIN4:**************
+
+CREATE TABLE public.accounts
+(
+    id integer NOT NULL DEFAULT nextval('accounts_id_seq'::regclass),
+    name text COLLATE pg_catalog."default",
+    budget numeric NOT NULL,
+    CONSTRAINT accounts_pkey PRIMARY KEY (id),
+    CONSTRAINT accounts_name_key UNIQUE (name)
+
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.accounts
+    OWNER to postgres;
